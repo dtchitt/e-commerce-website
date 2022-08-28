@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
 import { LinkContainer } from "react-router-bootstrap";
+import { FiShoppingCart } from "react-icons/fi";
+import { Form, Button } from "react-bootstrap";
 
 const NavMenu: React.FC = () => {
 	return (
@@ -20,7 +22,7 @@ const NavMenu: React.FC = () => {
 				</LinkContainer>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
-					<Nav className="mx-auto">
+					{/* <Nav className="mx-auto">
 						<LinkContainer to="/about">
 							<Nav.Link>About</Nav.Link>
 						</LinkContainer>
@@ -30,20 +32,18 @@ const NavMenu: React.FC = () => {
 						<LinkContainer to="/about">
 							<Nav.Link>About</Nav.Link>
 						</LinkContainer>
-					</Nav>
-					<Nav className="ms-0">
+					</Nav> */}
+
+					<Nav className="ms-auto me-3">
 						<LinkContainer to="/login">
 							<Nav.Link>Login</Nav.Link>
 						</LinkContainer>
-						<LinkContainer to="/cart">
+						<LinkContainer
+							to="/cart"
+							className="d-flex justify-content-center"
+						>
 							<Nav.Link>
-								<Image
-									width="30"
-									height="30"
-									src={require("../media/shopping-cart.png")}
-									fluid
-									alt="cart"
-								/>
+								<FiShoppingCart title="cart" size={24} />
 							</Nav.Link>
 						</LinkContainer>
 					</Nav>
