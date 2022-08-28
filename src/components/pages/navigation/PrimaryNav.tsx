@@ -4,8 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiShoppingCart } from "react-icons/fi";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/esm/Button";
+import SearchBar from "./SearchBar";
 
 const PrimaryNav: React.FC = () => {
 	return (
@@ -14,20 +13,7 @@ const PrimaryNav: React.FC = () => {
 				<LinkContainer to="/">
 					<Navbar.Brand className="ms-0">e-commerce</Navbar.Brand>
 				</LinkContainer>
-				<Form className="d-none d-sm-inline-flex w-50 p3 m-auto">
-					<Form.Control
-						type="search"
-						placeholder="Search"
-						className="me-0 rounded-0 rounded-start border-0 shadow-none"
-						aria-label="Search"
-					/>
-					<Button
-						variant="light"
-						className="rounded-0 rounded-end shadow-none"
-					>
-						Search
-					</Button>
-				</Form>
+				<SearchBar bsStyle="d-none d-sm-inline-flex w-50 p3 m-auto" />
 				<Nav className="me-3">
 					<LinkContainer to="/login" className="me-2">
 						<Nav.Link>Login</Nav.Link>
