@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 
 const PrimaryNav: React.FC = () => {
 	return (
-		<Navbar bg="dark" variant="dark" collapseOnSelect fixed="top">
+		<Navbar bg="dark" variant="dark" fixed="top">
 			<Container fluid>
 				<LinkContainer to="/">
 					<Navbar.Brand className="ms-0">e-commerce</Navbar.Brand>
