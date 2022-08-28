@@ -12,28 +12,6 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
 			</Routes>
-			{/* <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1>
-        <h1>scroll testing</h1> */}
 		</div>
 	);
 }
