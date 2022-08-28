@@ -7,20 +7,14 @@ import { FiShoppingCart } from "react-icons/fi";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/esm/Button";
 
-const MainNav: React.FC = () => {
+const PrimaryNav: React.FC = () => {
 	return (
-		<Navbar
-			bg="dark"
-			variant="dark"
-			collapseOnSelect
-			fixed="top"
-			expand="sm"
-		>
+		<Navbar bg="dark" variant="dark" collapseOnSelect fixed="top">
 			<Container fluid>
 				<LinkContainer to="/">
 					<Navbar.Brand className="ms-0">e-commerce</Navbar.Brand>
 				</LinkContainer>
-				<Form className="d-flex w-50 p3 m-auto">
+				<Form className="d-none d-sm-inline-flex w-50 p3 m-auto">
 					<Form.Control
 						type="search"
 						placeholder="Search"
@@ -52,4 +46,4 @@ const MainNav: React.FC = () => {
 	);
 };
 
-export default MainNav;
+export default PrimaryNav;
