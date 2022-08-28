@@ -38,8 +38,11 @@ const NavMenu: React.FC = () => {
 						<LinkContainer to="/cart">
 							<Nav.Link>
 								<Image
+									width="30"
+									height="30"
 									src={require("../media/shopping-cart.png")}
 									fluid
+									alt="cart"
 								/>
 							</Nav.Link>
 						</LinkContainer>
