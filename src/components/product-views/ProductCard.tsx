@@ -13,7 +13,6 @@ function ProductCard(){
         </Card.Text>
       </Card.Body>
     </Card>
-
   );
 
 }
