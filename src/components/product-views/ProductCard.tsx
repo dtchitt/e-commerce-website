@@ -1,25 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
 import './ProductCard.css';
 
 function ProductCard(){
   return(
-      <div id="card" className="container-fluid shadow m-1 p-2 text-center rounded">
-        <div className="row mx-auto image-container shadow bg-light rounded grow">
-        </div>
-        <div className="row mt-1">
-          <div className="col-7">
-            <h4>Title</h4>
-          </div>
-          <div className="col-5">
-            <p>msg</p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-5">
-            <h5>$xx.xx</h5>
-          </div>
-        </div>
-      </div>
+    <Card className='p-2 shadow grow' style={{ width: '12rem', height: '16rem', margin: '0.5rem' }}>
+      <Card.Img width='80%' height='60%' className='rounded p-1 shadow-sm mb-0 border' variant="top" src="#" alt="img"/>
+      <Card.Body className='p-0'>
+        <Card.Title>Product</Card.Title>
+        <Card.Subtitle>Description description description</Card.Subtitle>
+        <Card.Text className='mt-0'>
+          $XX.XX
+        </Card.Text>
+      </Card.Body>
+    </Card>
+
   );
 
 }
