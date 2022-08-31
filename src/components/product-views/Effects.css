@@ -5,6 +5,7 @@
 
 .grow:hover{
     transform: scale(1.03);
+    cursor: pointer;
 }
 
 .shade{
@@ -13,6 +14,7 @@
 
 .shade:hover{
     background-color: lightgrey;
+    cursor: pointer;
 }
 
 .shade > .grow{
