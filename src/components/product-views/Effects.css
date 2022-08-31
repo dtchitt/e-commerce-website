@@ -1,0 +1,24 @@
+
+.grow{
+    transition: all 0.25s;
+}
+
+.grow:hover{
+    transform: scale(1.03);
+}
+
+.shade{
+    transition: background-color 0.15s;
+}
+
+.shade:hover{
+    background-color: lightgrey;
+}
+
+.shade > .grow{
+    transition: all 0.25s;
+}
+
+.shade:hover > .grow{
+    transform: scale(1.05);
+}
