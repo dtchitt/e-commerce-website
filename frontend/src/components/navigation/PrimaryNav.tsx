@@ -1,16 +1,15 @@
-import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { LinkContainer } from "react-router-bootstrap";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi"
 import SearchBar from "./SearchBar";
 
 /**
  * Creates the main navbar. This will always display the site brand, login, cart links no matter how small screen is.
  * When the screen is to small, the searchbar will dissapear (it is then shown in the secondary nav)
  */
-const PrimaryNav: React.FC = () => {
+const PrimaryNav = () => {
 	return (
 		<Navbar bg="dark" variant="dark" fixed="top" className="d-block">
 			<Container fluid>

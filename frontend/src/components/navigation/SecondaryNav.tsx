@@ -16,15 +16,9 @@ import SearchBar from "./SearchBar";
  * When the screen is to small, the links turn into a dropdown menu and a search bar is added
  * This navbar IS NOT fixed to the top like the primary navbar is, it will be hidden when scrolling down the page
  */
-const SecondaryNav: React.FC = () => {
+const SecondaryNav = () => {
 	return (
-		<Navbar
-			collapseOnSelect
-			bg="dark"
-			variant="dark"
-			className="d-block"
-			expand="sm"
-		>
+		<Navbar collapseOnSelect bg="dark" variant="dark" expand="sm">
 			<Container fluid>
 				<SearchBar bsStyle="d-sm-none d-inline-flex w-75" />
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -32,7 +26,7 @@ const SecondaryNav: React.FC = () => {
 					id="responsive-navbar-nav"
 					className="justify-content-center"
 				>
-					<Nav>
+					<Nav className="float-end">
 						<LinkContainer to="/category1">
 							<Nav.Link>Popular #1</Nav.Link>
 						</LinkContainer>
