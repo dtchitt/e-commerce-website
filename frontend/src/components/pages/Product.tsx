@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'react-bootstrap/Image'
-import { Container, Row, Col, Badge } from 'react-bootstrap'
-import './Product.css'
+import Button from 'react-bootstrap/Button'
+import { Container, Row, Col, Badge, Carousel, CarouselItem } from 'react-bootstrap'
+import myImage from '../../res/sample.png'
 
 export default function Product() {
 
@@ -26,17 +27,22 @@ export default function Product() {
                 <p className='mt-0'>product number</p>
             </Col>
         </Row>
-        <Row>
-            <Col xs={7} className='p-3'>
-                <div className="border border-dark image-wrapper-lg">
-                    <Image className='border border-primary shadow p-0' src='#' alt='' style={{width: '100%', height: '100%'}} />
-                </div>
-            </Col>
-            <Col xs={4} className='border border-dark p-3'>
-                <div className='border border-primary p-0 m-0 shadow' style={{width:'50vh'}}>
-                    <Image className='p-0' src='#' alt='' style={{ width:'50vh', height:'30vh', maxWidth: '100%', maxHeight: '100%'}}/>
-                    <Image className='p-0' src='#' alt='' style={{ width:'50vh', height:'30vh', maxWidth: '100%', maxHeight: '100%' }}/>
-                </div>
+        <Row className='justify-content-start'>
+            <Col xs={8} className='p-3'>
+                <Carousel variant='dark' className='shadow'>
+                    <CarouselItem className=''>
+                        <Image src={myImage} alt="" className='d-block w-100 img-fluid'/>
+                    </CarouselItem>
+
+                    <CarouselItem className=''>
+                        <Image src={myImage} alt="" className='d-block w-100 img-fluid'/>
+                    </CarouselItem>
+
+                    <CarouselItem className=''>
+                        <Image src={myImage} alt="" className='d-block w-100 img-fluid'/>
+                    </CarouselItem>
+                </Carousel>
+                
             </Col>
         </Row>
         <Row className='mt-4'>
@@ -46,7 +52,7 @@ export default function Product() {
             </Col>
             <Col xs={5}>
                 {price(true)}
-                
+                <Button className='mt-2'>Add to Cart</Button>
             </Col>
         </Row>
     </Container>
