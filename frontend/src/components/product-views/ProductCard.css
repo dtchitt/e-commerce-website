@@ -1,7 +1,6 @@
-.grow{
-    transition: all 0.25s;
+.inGroup{
+    margin: 0;
 }
-
-.grow:hover{
-    transform: scale(1.05);
+.notInGroup{
+    margin: 0.5rem
 }
