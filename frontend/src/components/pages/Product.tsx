@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import { Container, Row, Col, Badge, Carousel, CarouselItem } from 'react-bootstrap'
+import ProductCard from '../product-views/ProductCard'
 import myImage from '../../res/sample.png'
 
 export default function Product() {
@@ -54,6 +55,20 @@ export default function Product() {
                 {price(true)}
                 <Button className='mt-2'>Add to Cart</Button>
             </Col>
+        </Row>
+        <Row className='my-5 py-1 d-flex flex-nowrap' style={{overflowX: 'scroll', height:'19rem'}}>
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
+            <ProductCard width={12} inGroup={false} />
         </Row>
     </Container>
         

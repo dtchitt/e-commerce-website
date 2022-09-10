@@ -5,10 +5,10 @@ function Home() {
 	return (
 		<div>
 			<CardGroup className='shadow rounded' style={{maxWidth: 'fit-content', margin: '0.5rem'}}>
-				<ProductCard width={12} inCard={true} />
-				<ProductCard width={12} inCard={true} />
+				<ProductCard width={12} inGroup={true} />
+				<ProductCard width={12} inGroup={true} />
 			</CardGroup>
-			<ProductCard width={12} inCard={false} />
+			<ProductCard width={12} inGroup={false} />
 			<h1>Home</h1>
 			<h1>Home</h1>
 			<h1>Home</h1>
