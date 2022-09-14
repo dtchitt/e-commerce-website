@@ -11,7 +11,7 @@ import SearchBar from "./SearchBar";
  */
 const PrimaryNav = () => {
 	return (
-		<Navbar bg="dark" variant="dark" fixed="top" className="d-block">
+		<Navbar bg="dark" variant="dark" sticky="top">
 			<Container fluid>
 				<LinkContainer to="/">
 					<Navbar.Brand className="ms-0">e-commerce</Navbar.Brand>
