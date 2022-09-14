@@ -56,7 +56,7 @@ export default function Product() {
                 <Button className='mt-2'>Add to Cart</Button>
             </Col>
         </Row>
-        <Row className='my-5 py-1 d-flex flex-nowrap' style={{overflowX: 'scroll', height:'19rem'}}>
+        <Row className='shadow my-5 py-1 d-flex flex-nowrap' style={{overflowX: 'scroll', height:'19rem'}}>
             <ProductCard width={12} inGroup={false} />
             <ProductCard width={12} inGroup={false} />
             <ProductCard width={12} inGroup={false} />
