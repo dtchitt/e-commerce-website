@@ -1,10 +1,10 @@
-import ProductCard from "../product-views/ProductCard";
-import { CardGroup } from "react-bootstrap";
+import ProductCard from '../components/product/ProductCard';
+import { CardGroup } from 'react-bootstrap';
 
 function Home() {
 	return (
 		<div>
-			<CardGroup className='shadow rounded' style={{maxWidth: 'fit-content', margin: '0.5rem'}}>
+			<CardGroup className='shadow rounded' style={{ maxWidth: 'fit-content', margin: '0.5rem' }}>
 				<ProductCard width={12} inCard={true} />
 				<ProductCard width={12} inCard={true} />
 			</CardGroup>
