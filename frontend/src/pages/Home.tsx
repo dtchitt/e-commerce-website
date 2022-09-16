@@ -1,5 +1,5 @@
-import ProductCard from "../product-views/ProductCard";
-import { CardGroup } from "react-bootstrap";
+import ProductCard from '../components/product/ProductCard';
+import { CardGroup } from 'react-bootstrap';
 
 function Home() {
 	return (

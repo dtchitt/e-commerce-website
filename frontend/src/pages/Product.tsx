@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import { Container, Row, Col, Badge, Carousel, CarouselItem } from 'react-bootstrap'
-import ProductCard from '../product-views/ProductCard'
-import myImage from '../../res/sample.png'
+import ProductCard from '../components/product/ProductCard'
+import myImage from '../media/sample.png'
 
 export default function Product() {
 
