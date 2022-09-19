@@ -3,7 +3,7 @@ import './Effects.css';
 import './ProductCard.css';
 
 //card with image placed on top along with price, description, and title below
-function ProductCard(props: { width: number; inCard: boolean }) {
+function ProductCard(props: { width: number; inGroup: boolean }) {
 	const width = props.width + 'rem';
 	const height = props.width * (4 / 3) + 'rem';
 	const displayPage = () => {
@@ -13,13 +13,13 @@ function ProductCard(props: { width: number; inCard: boolean }) {
 	return (
 		<Card
 			onClick={displayPage}
-			className={props.inCard ? 'p-2 shade inGroup' : 'p-2 shadow-sm grow notInGroup'}
+			className={props.inGroup ? 'p-2 shade inGroup' : 'p-2 shadow-sm grow notInGroup'}
 			style={{ width: width, height: height, maxWidth: width, maxHeight: height }}
 		>
 			<Card.Img
 				width='80%'
 				height='60%'
-				className={props.inCard ? ' grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
+				className={props.inGroup ? ' grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
 				variant='top'
 				src='#'
 				alt='img'
