@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
-import './Effects.css';
-import './ProductCard.css';
+import '../../styles/Effects.css';
+import '../../styles/ProductCard.css';
 
 //card with image placed on top along with price, description, and title below
 function ProductCard(props: { width: number; inGroup: boolean }) {
