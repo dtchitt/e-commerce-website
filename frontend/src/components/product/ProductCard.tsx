@@ -2,10 +2,15 @@ import Card from 'react-bootstrap/Card';
 import '../../styles/Effects.css';
 import '../../styles/ProductCard.css';
 
+type ProductCardProps = {
+	width: number;
+	inGroup: boolean;
+};
+
 //card with image placed on top along with price, description, and title below
-function ProductCard(props: { width: number; inGroup: boolean }) {
-	const width = props.width + 'rem';
-	const height = props.width * (4 / 3) + 'rem';
+function ProductCard({ width, inGroup }: ProductCardProps) {
+	const widthREM = width + 'rem';
+	const heightREM = width * (4 / 3) + 'rem';
 	const displayPage = () => {
 		document.location.href = '/product';
 	};
@@ -13,13 +18,13 @@ function ProductCard(props: { width: number; inGroup: boolean }) {
 	return (
 		<Card
 			onClick={displayPage}
-			className={props.inGroup ? 'p-2 shade inGroup' : 'p-2 shadow-sm grow notInGroup'}
-			style={{ width: width, height: height, maxWidth: width, maxHeight: height }}
+			className={inGroup ? 'p-2 shade inGroup' : 'p-2 shadow-sm grow notInGroup'}
+			style={{ width: widthREM, height: heightREM, maxWidth: widthREM, maxHeight: heightREM }}
 		>
 			<Card.Img
 				width='80%'
 				height='60%'
-				className={props.inGroup ? 'grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
+				className={inGroup ? 'grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
 				variant='top'
 				src='#'
 				alt='img'
