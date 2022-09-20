@@ -1,28 +1,35 @@
 import React from 'react';
 import { Card, Row, Col, Form } from 'react-bootstrap';
 import '../../styles/Effects.css';
-export default function ProductCardCart(props: { width: number; height: number }) {
-	const width = props.width + 'rem';
-	const height = props.height + 'rem';
-	const imgSize = props.height * 0.8 + 'rem';
+
+type ProductCardCartProps = {
+	width: number;
+	height: number;
+};
+
+export default function ProductCardCart({ width, height }: ProductCardCartProps) {
+	const widthREM = width + 'rem';
+	const heightREM = height + 'rem';
+	const imgSizeREM = height * 0.8 + 'rem';
+
 	const displayPage = () => {
 		document.location.href = '/product';
 	};
 
 	return (
-		<Card className='shadow m-2' style={{ width: width, height: height }}>
+		<Card className='shadow m-2' style={{ width: widthREM, height: heightREM }}>
 			<Row className='p-0 w-100 h-100'>
 				<Col xs={8}>
 					<Row className='grow-sm p-0 w-100 h-100'>
 						<Col onClick={displayPage} xs={4} className='px-4 d-flex align-items-center'>
 							<Card.Img
-								width={imgSize}
-								height={imgSize}
+								width={imgSizeREM}
+								height={imgSizeREM}
 								style={{
-									minWidth: imgSize,
-									minHeight: imgSize,
-									maxWidth: imgSize,
-									maxHeight: imgSize,
+									minWidth: imgSizeREM,
+									minHeight: imgSizeREM,
+									maxWidth: imgSizeREM,
+									maxHeight: imgSizeREM,
 								}}
 								className='rounded p-1 mb-0 border'
 								src='#'
