@@ -19,7 +19,7 @@ function ProductCard(props: { width: number; inGroup: boolean }) {
 			<Card.Img
 				width='80%'
 				height='60%'
-				className={props.inGroup ? ' grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
+				className={props.inGroup ? 'grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
 				variant='top'
 				src='#'
 				alt='img'
