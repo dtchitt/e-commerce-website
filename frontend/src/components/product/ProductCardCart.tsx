@@ -39,10 +39,17 @@ export default function ProductCardCart(props: { width: number; height: number }
 				</Col>
 				<Col xs={3}></Col>
 				<Col className='px-0 d-flex align-items-center' xs={1}>
-					<Form>
-						<Form.Label>Quantity</Form.Label>
-						<Form.Control type='number' />
-					</Form>
+					<Row>
+						<Col>
+							<p>$XX.XX</p>
+						</Col>
+						<Col>
+							<Form>
+								<Form.Label>Quantity</Form.Label>
+								<Form.Control type='number' />
+							</Form>
+						</Col>
+					</Row>
 				</Col>
 			</Row>
 		</Card>
