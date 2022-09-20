@@ -7,6 +7,15 @@
 	cursor: pointer;
 }
 
+.grow-sm {
+	transition: all 0.25s;
+}
+
+.grow-sm:hover {
+	transform: scale(1.015);
+	cursor: pointer;
+}
+
 .shade {
 	transition: background-color 0.15s;
 }
