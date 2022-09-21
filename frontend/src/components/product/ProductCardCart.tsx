@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Row, Col, Form } from 'react-bootstrap';
 import '../../styles/Effects.css';
+import sampleImage from '../../media/productSample.png';
 
 type ProductCardCartProps = {
 	width: number;
@@ -30,9 +31,10 @@ export default function ProductCardCart({ width, height }: ProductCardCartProps)
 									minHeight: imgSizeREM,
 									maxWidth: imgSizeREM,
 									maxHeight: imgSizeREM,
+									objectFit: 'cover',
 								}}
-								className='rounded p-1 mb-0 border'
-								src='#'
+								className='rounded p-0 mb-0 shadow'
+								src={sampleImage}
 								alt='img'
 							/>
 						</Col>

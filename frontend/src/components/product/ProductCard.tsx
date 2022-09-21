@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import '../../styles/Effects.css';
 import '../../styles/ProductCard.css';
+import sampleImage from '../../media/productSample.png';
 
 type ProductCardProps = {
 	width: number;
@@ -11,6 +12,7 @@ type ProductCardProps = {
 function ProductCard({ width, inGroup }: ProductCardProps) {
 	const widthREM = width + 'rem';
 	const heightREM = width * (4 / 3) + 'rem';
+
 	const displayPage = () => {
 		document.location.href = '/product';
 	};
@@ -24,9 +26,10 @@ function ProductCard({ width, inGroup }: ProductCardProps) {
 			<Card.Img
 				width='80%'
 				height='60%'
-				className={inGroup ? 'grow rounded p-1 mb-0 border' : 'rounded p-1 mb-0 border'}
+				style={{ objectFit: 'cover' }}
+				className={inGroup ? 'shadow grow rounded p-0 mb-0' : 'shadow rounded p-0 mb-0'}
 				variant='top'
-				src='#'
+				src={sampleImage}
 				alt='img'
 			/>
 			<Card.Body className='p-0'>
