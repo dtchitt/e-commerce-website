@@ -1,0 +1,34 @@
+.grow {
+	transition: all 0.25s;
+}
+
+.grow:hover {
+	transform: scale(1.03);
+	cursor: pointer;
+}
+
+.grow-sm {
+	transition: all 0.25s;
+}
+
+.grow-sm:hover {
+	transform: scale(1.015);
+	cursor: pointer;
+}
+
+.shade {
+	transition: background-color 0.15s;
+}
+
+.shade:hover {
+	background-color: lightgrey;
+	cursor: pointer;
+}
+
+.shade > .grow {
+	transition: all 0.25s;
+}
+
+.shade:hover > .grow {
+	transform: scale(1.05);
+}
