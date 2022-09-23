@@ -1,6 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { LinkContainer } from 'react-router-bootstrap';
+import LinkList from './LinkList';
 import SearchBar from './SearchBar';
 
 //TODO
@@ -16,30 +16,11 @@ import SearchBar from './SearchBar';
  */
 const SecondaryNav = () => {
 	return (
-		<Navbar collapseOnSelect bg='dark' variant='dark' expand='sm'>
+		<Navbar collapseOnSelect bg='dark' variant='dark' expand='sm' className='shadow pt-0'>
 			<SearchBar bsStyle='d-sm-none d-inline-flex w-75' />
-			<Navbar.Toggle aria-controls='responsive-navbar-nav' />
+			<Navbar.Toggle aria-controls='responsive-navbar-nav' className='me-2 px-1 py-0 mt-1' />
 			<Navbar.Collapse id='responsive-navbar-nav' className='justify-content-center'>
-				<Nav className='float-end'>
-					<LinkContainer to='/product'>
-						<Nav.Link>Products</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/'>
-						<Nav.Link>Category #2</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/'>
-						<Nav.Link>Category #3</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/'>
-						<Nav.Link>Category #4</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/'>
-						<Nav.Link>Category #5</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/'>
-						<Nav.Link>Category #6</Nav.Link>
-					</LinkContainer>
-				</Nav>
+			<Nav className='float-end'>{<LinkList />}</Nav>
 			</Navbar.Collapse>
 		</Navbar>
 	);

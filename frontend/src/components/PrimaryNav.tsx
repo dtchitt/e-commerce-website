@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
  */
 const PrimaryNav = () => {
 	return (
-		<Navbar bg='dark' variant='dark' sticky='top'>
+		<Navbar bg='dark' variant='dark' sticky='top' className='pb-0'>
 			<Container fluid>
 				<LinkContainer to='/'>
 					<Navbar.Brand className='ms-0'>e-commerce</Navbar.Brand>
@@ -23,7 +23,7 @@ const PrimaryNav = () => {
 					</LinkContainer>
 					<LinkContainer to='/cart' className='d-flex justify-content-center'>
 						<Nav.Link>
-							<FiShoppingCart title='cart' size={24} />
+							<FiShoppingCart title='Shopping Cart' size={24} />
 						</Nav.Link>
 					</LinkContainer>
 				</Nav>

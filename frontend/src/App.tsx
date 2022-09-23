@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Cart from './pages/Cart';
 
 function App() {
 	return (
@@ -15,10 +16,11 @@ function App() {
 					<Route path='/login' element={<Login />} />
 				</Route>
 				<Route element={<Navigation />}>
-					<Route path="/" element={<Home />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/product" element={<Product />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path='/' element={<Home />} />
+					<Route path='/cart' element={<Cart />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/product' element={<Product />} />
+					<Route path='/profile' element={<Profile />} />
 				</Route>
 			</Routes>
 		</div>
