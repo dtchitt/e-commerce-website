@@ -10,7 +10,7 @@ function Home() {
 				<ProductCard width={12} inGroup={true} />
 			</CardGroup>
 			<ProductCard width={12} inGroup={false} />
-			<ProductCardCart width={48} height={8} />
+			{/* <ProductCardCart width={48} height={8} /> */}
 			<h1>Home</h1>
 			<h1>Home</h1>
 			<h1>Home</h1>
