@@ -8,7 +8,9 @@ const LinkList = () => {
 		{ label: 'World of Warcraft', link: '/wow/products' },
 	];
 
-	const linkList = links.map((item) => <LinkItem label={item.label} link={item.link} />);
+	const linkList = links.map((item) => (
+		<LinkItem key={item.label} label={item.label} link={item.link} />
+	));
 
 	return <>{linkList}</>;
 };
