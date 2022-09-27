@@ -2,15 +2,15 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Product from './pages/Product';
-import './App.css';
 import Navigation from './components/Navigation';
-import Login from './pages/Login';
+import { Login } from './pages/Login';
 import Profile from './pages/Profile';
 import Cart from './pages/Cart';
+import './styles/general.css';
 
 function App() {
 	return (
-		<div className='App'>
+		<div id ='root-div'>
 			<Routes>
 				<Route element={<Outlet />}>
 					<Route path='/login' element={<Login />} />
