@@ -1,0 +1,19 @@
+.login-background {
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+}
+
+.login-title {
+    font: 28px sans-serif;
+}
+
+.login-mode-switch {
+    color: blue;
+    text-decoration: underline;
+
+}
+
+form {
+    background-color: white;
+}
