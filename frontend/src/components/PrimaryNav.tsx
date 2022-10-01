@@ -17,8 +17,8 @@ const PrimaryNav = () => {
 					<Navbar.Brand className='ms-0'>e-commerce</Navbar.Brand>
 				</LinkContainer>
 				<SearchBar bsStyle='d-none d-sm-inline-flex w-50 p3 m-auto' />
-				<Nav className='me-3'>
-					<LinkContainer to='/login' className='me-2'>
+				<Nav className=''>
+					<LinkContainer to='/login'>
 						<Nav.Link>Login</Nav.Link>
 					</LinkContainer>
 					<LinkContainer to='/cart' className='d-flex justify-content-center'>
