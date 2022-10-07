@@ -27,6 +27,7 @@ function App() {
 					<Route path='profile' element={<Profile />} />
 				</Route>
 				<Route path='seller' element={<SellerNavigation />}>
+					<Route path='' element={<Navigate to='dashboard' />} />
 					<Route path='dashboard' element={<Dashboard />} />
 				</Route>
 			</Routes>
