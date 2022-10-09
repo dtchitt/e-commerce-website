@@ -9,6 +9,8 @@ import Cart from './pages/Cart';
 
 import SellerNavigation from './pages/seller/SellerNavigation';
 import Dashboard from './pages/seller/Dashboard';
+import Products from './pages/seller/Products';
+import Analytics from './pages/seller/Analytics';
 import './styles/general.css';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
 				<Route path='seller' element={<SellerNavigation />}>
 					<Route path='' element={<Navigate to='dashboard' />} />
 					<Route path='dashboard' element={<Dashboard />} />
+					<Route path='products' element={<Products />} />
+					<Route path='analytics' element={<Analytics />} />
 				</Route>
 			</Routes>
 		</div>
