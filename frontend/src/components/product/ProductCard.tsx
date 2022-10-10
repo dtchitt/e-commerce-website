@@ -36,7 +36,7 @@ function ProductCard({ width, inGroup }: ProductCardProps) {
 				src={sampleImage}
 				alt='img'
 			/>
-			<Card.Body className='p-0'>
+			<Card.Body className='p-0 pt-2'>
 				<Card.Title>Product</Card.Title>
 				<Card.Subtitle>Description description description</Card.Subtitle>
 				<Card.Text className='mt-0'>$XX.XX</Card.Text>
