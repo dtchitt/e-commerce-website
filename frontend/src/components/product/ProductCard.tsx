@@ -20,7 +20,11 @@ function ProductCard({ width, inGroup }: ProductCardProps) {
 	return (
 		<Card
 			onClick={displayPage}
-			className={inGroup ? 'p-2 shade inGroup' : 'p-2 shadow-sm grow notInGroup'}
+			className={
+				inGroup
+					? 'p-2 shade inGroup text-start'
+					: 'p-2 shadow-sm grow notInGroup d-inline-block text-start'
+			}
 			style={{ width: widthREM, height: heightREM, maxWidth: widthREM, maxHeight: heightREM }}
 		>
 			<Card.Img
