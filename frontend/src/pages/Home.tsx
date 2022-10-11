@@ -1,42 +1,41 @@
-import ProductCard2 from '../components/product/ProductCard2';
+import ProductCard from '../components/product/ProductCard';
 import testImage from '../media/sample.png';
 
 function Home() {
 	return (
 		<div>
-			{/* <CardGroup className='shadow rounded' style={{ maxWidth: 'fit-content', margin: '0.5rem' }}>
-				<ProductCard width={12} inGroup={true} />
-				<ProductCard width={12} inGroup={true} />
-			</CardGroup>
-			<ProductCard width={12} inGroup={false} /> */}
-			<ProductCard2
+			{/* <CardGroup className='shadow rounded' style={{ maxWidth: 'fit-content', margin: '0.5rem' }}> */}
+			<ProductCard
 				id={0}
 				name={'GG Item'}
 				description={
-					'The best items around what if this is a really long sentence does it make the card grow? no it doesnt it extends it vertically, which is preferred'
+					'The best items around what if this is a really long sentence does it make the card grow? no it doesnt it extends it vertically, which is preferred The best items around what if this is a really long sentence does it make the card grow? no it doesnt it extends it vertically, which is preferred'
 				}
 				imgUrl={testImage}
-				itemUrl={'/'}
-				price={5.99}
+				price={500000}
+				maxWidth={40}
 			/>
-			{/* <ProductCardCart width={48} height={8} /> */}
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>Home</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
-			<h1>scrolling test</h1>
+
+			<ProductCard
+				id={0}
+				name={'GG Item'}
+				description={
+					'ich is preferred The best items around what if this is a really long sentence does it make the card grow? no it doesnt it extends it vertically, which is preferred'
+				}
+				imgUrl={testImage}
+				price={6969}
+			/>
+
+			<ProductCard
+				id={0}
+				name={'GG Item'}
+				description={
+					'The best items around what if this is a really long sentence sdFFFFFFASDGSDS D SDGSDSDDSBSDBBDSdoes it make the card grow? no it doesnt it extends it vertically, which is preferred The best items around what if this is a really long sentence does it make the card grow? no it doesnt it extends it vertically, which is preferred'
+				}
+				imgUrl={testImage}
+				price={420.71}
+			/>
+			{/* </CardGroup> */}
 		</div>
 	);
 }
