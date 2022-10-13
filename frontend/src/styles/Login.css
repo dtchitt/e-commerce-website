@@ -8,9 +8,13 @@
 	font: 28px sans-serif;
 }
 
-.login-mode-switch {
+.sub-link {
 	color: blue;
 	text-decoration: underline;
+}
+
+.sub-link:hover{
+	cursor: pointer;
 }
 
 .login-background > form {

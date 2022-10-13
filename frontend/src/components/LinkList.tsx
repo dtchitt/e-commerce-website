@@ -2,7 +2,7 @@ import LinkItem from './LinkItem';
 
 const LinkList = () => {
 	const links = [
-		{ label: 'Products', link: '/product' },
+		{ label: 'Products', link: '/products' },
 		{ label: 'Diablo II', link: '/diabloii/products' },
 		{ label: 'Path of Exile', link: '/poe/products' },
 		{ label: 'World of Warcraft', link: '/wow/products' },
