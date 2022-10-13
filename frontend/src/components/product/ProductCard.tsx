@@ -17,10 +17,10 @@ type ProductCardProps = {
 const ProductCard = ({ id, name, description, imgUrl, price, maxWidth }: ProductCardProps) => {
 	const displayPage = () => (document.location.href = `/${name.replace(/\s/g, '')}`);
 	const width: string = !maxWidth ? '14rem' : maxWidth + 'rem';
-	const { getItemCount, increaseCartCount, decreaseCartCount, removeFromCart } = useCart();
+	const { getItemCount, increaseCartCount } = useCart();
 
 	return (
-		<Card className='p-2 shadow-sm grow h-100' style={{ maxWidth: width }}>
+		<Card className='p-2 shadow-sm grow' style={{ maxWidth: width }}>
 			<Card.Img
 				variant='top'
 				src={`${imgUrl}`}
