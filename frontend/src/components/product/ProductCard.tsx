@@ -1,47 +1,56 @@
+import { Button, Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import '../../styles/Effects.css';
-import '../../styles/ProductCard.css';
-import sampleImage from '../../media/productSample.png';
+import { useCart } from '../../context/CartContext';
+import { formatCurrency } from '../../utils';
+import AdjustCartButton from '../cart/AdjustCartButton';
 
 type ProductCardProps = {
-	width: number;
-	inGroup: boolean;
+	id: number;
+	name: string;
+	description: string;
+	imgUrl: string;
+	price: number;
+	maxWidth?: number;
 };
 
-//card with image placed on top along with price, description, and title below
-function ProductCard({ width, inGroup }: ProductCardProps) {
-	const widthREM = width + 'rem';
-	const heightREM = width * (4 / 3) + 'rem';
-
-	const displayPage = () => {
-		document.location.href = '/product';
-	};
+//TODO: Add sale visual
+const ProductCard = ({ id, name, description, imgUrl, price, maxWidth }: ProductCardProps) => {
+	const displayPage = () => (document.location.href = `/${name.replace(/\s/g, '')}`);
+	const width: string = !maxWidth ? '14rem' : maxWidth + 'rem';
+	const { getItemCount, increaseCartCount, decreaseCartCount, removeFromCart } = useCart();
 
 	return (
-		<Card
-			onClick={displayPage}
-			className={
-				inGroup
-					? 'p-2 shade inGroup text-start'
-					: 'p-2 shadow-sm grow notInGroup d-inline-block text-start'
-			}
-			style={{ width: widthREM, height: heightREM, maxWidth: widthREM, maxHeight: heightREM }}
-		>
+		<Card className='p-2 shadow-sm grow h-100' style={{ maxWidth: width }}>
 			<Card.Img
-				width='80%'
-				height='60%'
-				style={{ objectFit: 'cover' }}
-				className={inGroup ? 'shadow grow rounded p-0 mb-0' : 'shadow rounded p-0 mb-0'}
 				variant='top'
-				src={sampleImage}
-				alt='img'
+				src={`${imgUrl}`}
+				height={Number(width) * (4 / 3) + 'rem'}
+				style={{ objectFit: 'cover' }}
+				className='rounded p-1 mb-1 border grow'
+				alt={name}
+				title={name}
 			/>
-			<Card.Body className='p-0 pt-2'>
-				<Card.Title>Product</Card.Title>
-				<Card.Subtitle>Description description description</Card.Subtitle>
-				<Card.Text className='mt-0'>$XX.XX</Card.Text>
+			<Card.Body className='p-0'>
+				<Container className='p-0 mb-1 mt-1 d-flex justify-content-between'>
+					<Card.Title style={{ whiteSpace: 'nowrap' }}>{name}</Card.Title>
+					<Card.Text>{formatCurrency(price)}</Card.Text>
+				</Container>
+				<Card.Subtitle>{description}</Card.Subtitle>
+				{getItemCount(id) === 0 ? (
+					<Button
+						className='mt-1 w-100'
+						style={{ width: '5rem', height: '2.5rem' }}
+						title={name}
+						onClick={() => increaseCartCount(id)}
+					>
+						Add to Cart
+					</Button>
+				) : (
+					<AdjustCartButton id={id} />
+				)}
 			</Card.Body>
 		</Card>
 	);
-}
+};
+
 export default ProductCard;
