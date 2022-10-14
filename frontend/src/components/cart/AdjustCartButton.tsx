@@ -10,15 +10,17 @@ const AdjustCartButton = ({ id }: AdjustCartButtonProps) => {
 
 	return (
 		<div className='d-flex align-items-center flex-column' style={{ gap: '.5rem' }}>
-			<div className='d-flex align-items-center justify-content-center' style={{ gap: '.5rem' }}>
-				<Button title='remove' onClick={() => decreaseCartCount(id)}>
+			<div className='d-flex align-items-center' style={{ gap: '.5rem' }}>
+				<Button title='remove' onClick={() => decreaseCartCount(id)} style={{ width: '2rem' }}>
 					-
 				</Button>
-				<>
-					<span className='fs-3'>{}</span>
-					{getItemCount(id)} in cart
-				</>
-				<Button title='add' onClick={() => increaseCartCount(id)}>
+				<span className='fs-4'>{getItemCount(id)}</span>
+				in cart
+				<Button
+					title='add'
+					onClick={() => increaseCartCount(id)}
+					style={{ width: '2rem', paddingLeft: '0.563rem' }}
+				>
 					+
 				</Button>
 			</div>
