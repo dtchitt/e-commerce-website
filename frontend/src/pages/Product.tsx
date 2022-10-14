@@ -1,8 +1,7 @@
-import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Badge, Carousel, CarouselItem } from 'react-bootstrap';
-import ProductCard from '../components/product/ProductCard';
+import ProductCard from '../components/product/ProductCardDeprecated';
 import myImage from '../media/sample.png';
 
 export default function Product() {

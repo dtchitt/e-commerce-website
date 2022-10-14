@@ -2,13 +2,15 @@ import LinkItem from './LinkItem';
 
 const LinkList = () => {
 	const links = [
-		{ label: 'Products', link: '/product' },
+		{ label: 'Products', link: '/products' },
 		{ label: 'Diablo II', link: '/diabloii/products' },
 		{ label: 'Path of Exile', link: '/poe/products' },
 		{ label: 'World of Warcraft', link: '/wow/products' },
 	];
 
-	const linkList = links.map((item) => <LinkItem label={item.label} link={item.link} />);
+	const linkList = links.map((item) => (
+		<LinkItem key={item.label} label={item.label} link={item.link} />
+	));
 
 	return <>{linkList}</>;
 };

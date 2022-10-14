@@ -33,6 +33,7 @@ export function Login() {
 		console.log(confirm);
 	};
 
+
 	const toggleMode = (): void => {
 		setLoginMode(loginMode ? false : true);
 	};
@@ -45,6 +46,7 @@ export function Login() {
 				</div>
 
 				<Form.Group className='mb-4' controlId='usernameInput'>
+
 					<Form.Control placeholder='Username' onChange={handleUserInfoChange} />
 				</Form.Group>
 				<FormGroup className='mb-4' controlId='passwordInput'>
@@ -57,6 +59,7 @@ export function Login() {
 							placeholder='Confirm Password'
 							onChange={handleUserInfoChange}
 						/>
+
 					</Form.Group>
 				)}
 
@@ -70,6 +73,7 @@ export function Login() {
 					<p className='login-mode-switch'>
 						{loginMode ? 'Create an account?' : 'Already have an account?'}
 					</p>
+
 				</div>
 			</Form>
 		</div>
