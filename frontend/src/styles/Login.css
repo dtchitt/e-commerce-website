@@ -6,17 +6,16 @@
 
 .login-title {
 	font: 28px sans-serif;
+	color: white;
 }
 
-.sub-link {
-	color: blue;
+.login-mode-switch {
+	color: #649ef5;
 	text-decoration: underline;
-}
-
-.sub-link:hover{
 	cursor: pointer;
 }
 
 .login-background > form {
-	background-color: white;
+	background-color: #414141;
+
 }
