@@ -1,19 +1,20 @@
 .login-background {
-    height: 100%;
-    width: 100%;
-    background-color: grey;
+	height: 100%;
+	width: 100%;
+	background-color: grey;
 }
 
 .login-title {
-    font: 28px sans-serif;
+	font: 28px sans-serif;
+	color: white;
 }
 
 .login-mode-switch {
-    color: blue;
-    text-decoration: underline;
-
+	color: #649ef5;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
-form {
-    background-color: white;
+.login-background > form {
+	background-color: #414141;
 }
