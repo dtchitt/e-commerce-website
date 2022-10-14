@@ -4,9 +4,34 @@ import '../styles/Login.css';
 
 export function Login() {
 	const [loginMode, setLoginMode] = useState(true);
+
+	// user login/signup info
 	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
-	const [Confirm, setConfirm] = useState('');
+	const [confirm, setConfirm] = useState('');
+
+	// handle change in user input
+	const handleUserInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const eventID = event.target.id;
+
+		switch (eventID) {
+			case 'username':
+				setUserName(event.target.value);
+				break;
+			case 'password':
+				setPassword(event.target.value);
+				break;
+			case 'confirm':
+				setConfirm(event.target.value);
+				break;
+			default:
+				console.log('Something went wrong!');
+		}
+
+		console.log(userName);
+		console.log(password);
+		console.log(confirm);
+	};
 
 	const toggleMode = (): void => {
 		setLoginMode(loginMode ? false : true);
@@ -20,14 +45,18 @@ export function Login() {
 				</div>
 
 				<Form.Group className='mb-4' controlId='usernameInput'>
-					<Form.Control placeholder='Username' />
+					<Form.Control placeholder='Username' onChange={handleUserInfoChange} />
 				</Form.Group>
 				<FormGroup className='mb-4' controlId='passwordInput'>
-					<FormControl type='password' placeholder='Password' />
+					<FormControl type='password' placeholder='Password' onChange={handleUserInfoChange} />
 				</FormGroup>
 				{!loginMode && (
 					<Form.Group className='mb-3' controlId='confirmInput'>
-						<FormControl type='password' placeholder='Confirm Password' />
+						<FormControl
+							type='password'
+							placeholder='Confirm Password'
+							onChange={handleUserInfoChange}
+						/>
 					</Form.Group>
 				)}
 
