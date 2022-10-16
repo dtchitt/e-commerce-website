@@ -29,24 +29,25 @@ const ProductCard = ({ id, name, description, imgUrl, price, maxWidth }: Product
 				className='rounded p-1 mb-1 border grow'
 				alt={name}
 				title={name}
+				onClick={displayPage}
 			/>
 			<Card.Body className='p-0'>
-				<Container className='p-0 mb-1 mt-1 d-flex justify-content-between'>
-					<Card.Title style={{ whiteSpace: 'nowrap' }}>{name}</Card.Title>
-					<Card.Text>{formatCurrency(price)}</Card.Text>
-				</Container>
+				<Card.Title className='py-1 m-0'>{name}</Card.Title>
 				<Card.Subtitle>{description}</Card.Subtitle>
 				{getItemCount(id) === 0 ? (
-					<Button
-						className='mt-1 w-100'
-						style={{ width: '5rem', height: '2.5rem' }}
-						title={name}
-						onClick={() => increaseCartCount(id)}
-					>
-						Add to Cart
-					</Button>
+					<div className='d-flex text-center text-nowrap justify-content-between align-items-baseline'>
+						<Button
+							className='mt-1'
+							style={{ width: '60%', height: '2rem' }}
+							title={name}
+							onClick={() => increaseCartCount(id)}
+						>
+							Add to Cart
+						</Button>
+						<Card.Text>{formatCurrency(price)}</Card.Text>
+					</div>
 				) : (
-					<AdjustCartButton id={id} />
+					<AdjustCartButton id={id} price={price} />
 				)}
 			</Card.Body>
 		</Card>
