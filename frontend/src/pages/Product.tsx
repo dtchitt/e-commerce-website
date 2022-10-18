@@ -1,8 +1,9 @@
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Badge, Carousel, CarouselItem } from 'react-bootstrap';
-import ProductCard from '../components/product/ProductCardDeprecated';
+import ProductCard from '../components/product/ProductCard';
 import myImage from '../media/sample.png';
+import testImage from '../media/sample.png';
 
 export default function Product() {
 	const price = (onSale: boolean) => {
@@ -61,18 +62,24 @@ export default function Product() {
 					className='shadow my-5 py-1 d-flex flex-nowrap'
 					style={{ overflowX: 'scroll', height: '19rem' }}
 				>
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
-					<ProductCard width={12} inGroup={false} />
+					<ProductCard
+						id={0}
+						name={'GG Item reallky long item name'}
+						description={''}
+						imgUrl={testImage}
+						price={9}
+					/>
+					<ProductCard id={1} name={'GG Item'} description={''} imgUrl={testImage} price={99} />
+					<ProductCard id={2} name={'GG Item'} description={''} imgUrl={testImage} price={999} />
+					<ProductCard id={3} name={'GG Item'} description={''} imgUrl={testImage} price={9999} />
+					<ProductCard id={4} name={'GG Item'} description={''} imgUrl={testImage} price={99999} />
+					<ProductCard id={5} name={'GG Item'} description={''} imgUrl={testImage} price={999999} />
+					<ProductCard id={6} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
+					<ProductCard id={0} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
+					<ProductCard id={0} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
+					<ProductCard id={0} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
+					<ProductCard id={0} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
+					<ProductCard id={0} name={'GG Item'} description={''} imgUrl={testImage} price={500000} />
 				</Row>
 			</Container>
 		</>
