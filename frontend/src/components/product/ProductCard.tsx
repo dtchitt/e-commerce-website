@@ -25,6 +25,7 @@ const ProductCard = ({ id, name, description, imgUrl, price, maxWidth }: Product
 				!maxWidth || maxWidth <= 20 ? 'p-2 shadow-sm grow m-1' : 'p-2 shadow-sm grow-sm m-1'
 			}
 			style={{ maxWidth: width }}
+			onClick={displayPage}
 		>
 			<Card.Img
 				variant='top'
