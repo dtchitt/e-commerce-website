@@ -1,12 +1,22 @@
 import { Form, FormControl, FormGroup, Button, Nav } from 'react-bootstrap';
 import { useState } from 'react';
+import axios, { AxiosError } from 'axios';
 import '../styles/Login.css';
+import { useNavigate } from 'react-router-dom';
+import { isAxiosError } from '../utils/axios-error-guard';
+
+type ExpectedResponseType = {
+	stringType: string;
+};
 
 export function Login() {
+	const Navigate = useNavigate();
+	const [alert, setAlert] = useState('');
+
 	const [loginMode, setLoginMode] = useState(true);
 
 	// user login/signup info
-	const [userName, setUserName] = useState('');
+	const [username, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirm, setConfirm] = useState('');
 
@@ -28,14 +38,72 @@ export function Login() {
 				console.log('Something went wrong!');
 		}
 
-		console.log(userName);
+		console.log(username);
 		console.log(password);
 		console.log(confirm);
 	};
 
+	const loginUser = async () => {
+		try {
+			const { data } = await axios.post('api/user/login', {
+				username,
+				password,
+			});
+
+			Navigate('/home', {
+				replace: false,
+				state: {
+					id: data.id,
+					username: data.username,
+				},
+			});
+		} catch (error: unknown) {
+			if (isAxiosError<ExpectedResponseType>(error)) {
+				console.log(error.response?.data.stringType);
+			}
+		}
+	};
+
+	const registerUser = async () => {
+		try {
+			const { data } = await axios.post('api/user', {
+				username,
+				password,
+			});
+
+			Navigate('/home', {
+				replace: false,
+				state: {
+					id: data.id,
+					username: data.username,
+				},
+			});
+		} catch (error: unknown) {
+			if (isAxiosError<ExpectedResponseType>(error)) {
+				console.log(error.response?.data.stringType);
+			}
+		}
+	};
 
 	const toggleMode = (): void => {
 		setLoginMode(loginMode ? false : true);
+	};
+
+	const handleLogin = () => {
+		// check for empty fields
+		if (!username || !password || (!confirm && !loginMode)) {
+			setAlert('All fields required.');
+			return;
+		} else if (password != confirm && !loginMode) {
+			setAlert("Passwords don't match!");
+			return;
+		}
+
+		if (loginMode) {
+			loginUser();
+		} else {
+			registerUser();
+		}
 	};
 
 	return (
@@ -46,7 +114,6 @@ export function Login() {
 				</div>
 
 				<Form.Group className='mb-4' controlId='usernameInput'>
-
 					<Form.Control placeholder='Username' onChange={handleUserInfoChange} />
 				</Form.Group>
 				<FormGroup className='mb-4' controlId='passwordInput'>
@@ -59,12 +126,11 @@ export function Login() {
 							placeholder='Confirm Password'
 							onChange={handleUserInfoChange}
 						/>
-
 					</Form.Group>
 				)}
 
 				<div className='mb-4 d-grid gap-2'>
-					<Button variant='secondary' size='sm'>
+					<Button variant='secondary' size='sm' onClick={handleLogin}>
 						{loginMode ? 'Login' : 'Sign up'}
 					</Button>
 				</div>
@@ -73,7 +139,6 @@ export function Login() {
 					<p className='login-mode-switch'>
 						{loginMode ? 'Create an account?' : 'Already have an account?'}
 					</p>
-
 				</div>
 			</Form>
 		</div>
