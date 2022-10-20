@@ -5,8 +5,10 @@ import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { isAxiosError } from '../utils/axios-error-guard';
 
-type ExpectedResponseType = {
-	stringType: string;
+type UserAcceptedResponse = {
+	username: string;
+	password: string;
+	id: Number;
 };
 
 export function Login() {
@@ -45,42 +47,50 @@ export function Login() {
 
 	const loginUser = async () => {
 		try {
-			const { data } = await axios.post('api/user/login', {
-				username,
-				password,
+			const { data } = await axios.post<UserAcceptedResponse>('api/user/login', {
+				username: username,
+				password: password,
 			});
 
 			Navigate('/home', {
 				replace: false,
 				state: {
 					id: data.id,
-					username: data.username,
+					username: username,
 				},
 			});
-		} catch (error: unknown) {
-			if (isAxiosError<ExpectedResponseType>(error)) {
-				console.log(error.response?.data.stringType);
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				console.log('Axios Error: ', error.message);
+				return error.message;
+			} else {
+				console.log('General Error: ', error);
+				return 'Unexpected general error.';
 			}
 		}
 	};
 
 	const registerUser = async () => {
 		try {
-			const { data } = await axios.post('api/user', {
-				username,
-				password,
+			const { data } = await axios.post<UserAcceptedResponse>('api/user', {
+				username: username,
+				password: username,
 			});
 
 			Navigate('/home', {
 				replace: false,
 				state: {
 					id: data.id,
-					username: data.username,
+					username: username,
 				},
 			});
 		} catch (error: unknown) {
-			if (isAxiosError<ExpectedResponseType>(error)) {
-				console.log(error.response?.data.stringType);
+			if (axios.isAxiosError(error)) {
+				console.log('Axios Error: ', error.message);
+				return error.message;
+			} else {
+				console.log('General Error: ', error);
+				return 'Unexpected general error.';
 			}
 		}
 	};
