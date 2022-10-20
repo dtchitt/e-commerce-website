@@ -1,14 +1,13 @@
 import { Form, FormControl, FormGroup, Button, Nav } from 'react-bootstrap';
 import { useState } from 'react';
-import axios, { AxiosError } from 'axios';
-import '../styles/Login.css';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { isAxiosError } from '../utils/axios-error-guard';
+import '../styles/Login.css';
 
 type UserAcceptedResponse = {
 	username: string;
 	password: string;
-	id: Number;
+	id: number;
 };
 
 export function Login() {
