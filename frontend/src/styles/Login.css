@@ -17,5 +17,10 @@
 
 .login-background > form {
 	background-color: #414141;
+}
 
+.login-alert {
+	text-align: center;
+	color: rgb(225, 4, 4);
+	height: 30px;
 }

@@ -12,7 +12,7 @@ type UserAcceptedResponse = {
 
 export function Login() {
 	const Navigate = useNavigate();
-	const [alert, setAlert] = useState('');
+	const [alert, setAlert] = useState(' ');
 
 	const [loginMode, setLoginMode] = useState(true);
 
@@ -38,10 +38,6 @@ export function Login() {
 			default:
 				console.log('Something went wrong!');
 		}
-
-		console.log(username);
-		console.log(password);
-		console.log(confirm);
 	};
 
 	const loginUser = async () => {
@@ -100,7 +96,7 @@ export function Login() {
 
 	const handleLogin = () => {
 		// check for empty fields
-		if (!username || !password || (!confirm && !loginMode)) {
+		if (username.length == 0 || password.length == 0 || (confirm.length == 0 && !loginMode)) {
 			setAlert('All fields required.');
 			return;
 		} else if (password != confirm && !loginMode) {
@@ -118,18 +114,22 @@ export function Login() {
 	return (
 		<div className='login-background d-flex justify-content-center align-items-center'>
 			<Form className='rounded py-3 px-4'>
-				<div className='mb-4 mt-2 login-title'>
+				<div className='login-title'>
 					<p>{loginMode ? 'Login' : 'Sign up'}</p>
 				</div>
 
-				<Form.Group className='mb-4' controlId='usernameInput'>
+				<div className='login-alert'>
+					<p>{alert}</p>
+				</div>
+
+				<Form.Group className='mb-4' controlId='username'>
 					<Form.Control placeholder='Username' onChange={handleUserInfoChange} />
 				</Form.Group>
-				<FormGroup className='mb-4' controlId='passwordInput'>
+				<FormGroup className='mb-4' controlId='password'>
 					<FormControl type='password' placeholder='Password' onChange={handleUserInfoChange} />
 				</FormGroup>
 				{!loginMode && (
-					<Form.Group className='mb-3' controlId='confirmInput'>
+					<Form.Group className='mb-3' controlId='confirm'>
 						<FormControl
 							type='password'
 							placeholder='Confirm Password'
