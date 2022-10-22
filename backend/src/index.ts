@@ -1,27 +1,16 @@
 import express from 'express';
-import mysql from 'mysql';
-import * as dotenv from 'dotenv';
+import { sequelize as db } from './database';
 
-dotenv.config();
 const app = express();
 const port = 3001;
 
-const connection = mysql.createConnection({
-	host: process.env.DB_ENDPOINT,
-	port: Number(process.env.DB_PORT),
-	user: process.env.DB_USERNAME,
-	password: process.env.DB_PASSWORD,
-	database: process.env.DB_NAME,
-});
+app.listen(port, async () => {
+	console.log(`Express is listening at http://localhost:${port}`);
 
-connection.connect(function (err) {
-	if (!err) {
-		console.log('Database is connected ... ');
-	} else {
-		console.log(err.stack);
+	try {
+		await db.authenticate();
+		console.log('Connection has been established successfully.');
+	} catch (error) {
+		console.error('Unable to connect to the database:', error);
 	}
-});
-
-app.listen(port, () => {
-	return console.log(`Express is listening at http://localhost:${port}`);
 });
