@@ -8,7 +8,9 @@
 		"outDir": "dist",
 		"allowJs": true,
 		"forceConsistentCasingInFileNames": true,
-		"strict": true
+		"strict": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
 	},
 	"lib": ["es2015"],
 	"include": ["./src/**/*"],
