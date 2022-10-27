@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model addresses {
+  address_id   Int     @id @default(autoincrement())
+  user_id      Int?
+  street       String? @db.VarChar(200)
+  unit         String? @db.VarChar(20)
+  city         String? @db.VarChar(100)
+  state        String? @db.VarChar(50)
+  zipcode      Int?
+  instructions String? @db.VarChar(500)
+  users        users?  @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "addresses_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model cart_items {
+  product_id Int?
+  cart_id    Int?
+  products   products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_1")
+  carts      carts?    @relation(fields: [cart_id], references: [cart_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_2")
+
+  @@index([cart_id], map: "cart_id")
+  @@index([product_id], map: "product_id")
+  @@ignore
+}
+
+model carts {
+  cart_id    Int          @id @default(autoincrement())
+  user_id    Int?
+  users      users?       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "carts_ibfk_1")
+  cart_items cart_items[] @ignore
+
+  @@index([user_id], map: "user_id")
+}
+
+model order_items {
+  order_item_id Int       @id @default(autoincrement())
+  quantity      Int?
+  product_id    Int?
+  order_id      Int?
+  products      products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "order_items_ibfk_1")
+  orders        orders?   @relation(fields: [order_id], references: [order_id], onDelete: NoAction, onUpdate: NoAction, map: "order_items_ibfk_2")
+
+  @@index([order_id], map: "order_id")
+  @@index([product_id], map: "product_id")
+}
+
+model orders {
+  order_id    Int           @id @default(autoincrement())
+  user_id     Int?
+  status      String?       @db.VarChar(10)
+  date        DateTime?     @db.Date
+  time        DateTime?     @db.Time(0)
+  users       users?        @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "orders_ibfk_1")
+  order_items order_items[]
+
+  @@index([user_id], map: "user_id")
+}
+
+model products {
+  product_id  Int           @id @default(autoincrement())
+  user_id     Int?
+  image_url   String?       @db.VarChar(1000)
+  description String?       @db.VarChar(2000)
+  price       Decimal?      @db.Decimal(10, 2)
+  stock       Int?
+  name        String?       @db.VarChar(200)
+  users       users?        @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "products_ibfk_1")
+  cart_items  cart_items[]  @ignore
+  order_items order_items[]
+  reviews     reviews[]
+
+  @@index([user_id], map: "user_id")
+}
+
+model reviews {
+  review_id   Int       @id @default(autoincrement())
+  user_id     Int?
+  product_id  Int?
+  rating      Decimal?  @db.Decimal(2, 1)
+  description String?   @db.VarChar(2000)
+  users       users?    @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "reviews_ibfk_1")
+  products    products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "reviews_ibfk_2")
+
+  @@index([product_id], map: "product_id")
+  @@index([user_id], map: "user_id")
+}
+
+model users {
+  user_id    Int         @id @default(autoincrement())
+  username   String?     @db.VarChar(40)
+  first_name String?     @db.VarChar(40)
+  last_name  String?     @db.VarChar(40)
+  email      String?     @db.VarChar(40)
+  password   String?     @db.Char(60)
+  addresses  addresses[]
+  carts      carts[]
+  orders     orders[]
+  products   products[]
+  reviews    reviews[]
+}
