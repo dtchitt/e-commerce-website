@@ -8,6 +8,8 @@ const prisma = new PrismaClient();
 
 async function main() {
 	console.log('seeding');
+	const allUsers = await prisma.user.findMany();
+	console.log(allUsers);
 }
 
 main()
