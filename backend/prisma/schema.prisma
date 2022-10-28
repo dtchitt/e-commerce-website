@@ -4,13 +4,13 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      =env("DB_URL")
+  url      =env("DATABASE_URL")
   
 }
 
 model addresses {
   address_id   Int     @id @default(autoincrement())
-  user_id      Int?
+  user_id      Int     @unique
   street       String? @db.VarChar(200)
   unit         String? @db.VarChar(20)
   city         String? @db.VarChar(100)
@@ -98,7 +98,7 @@ model reviews {
 
 model users {
   user_id    Int         @id @default(autoincrement())
-  username   String?     @db.VarChar(40)
+  username   String?     @unique @db.VarChar(40)
   first_name String?     @db.VarChar(40)
   last_name  String?     @db.VarChar(40)
   email      String?     @db.VarChar(40)
