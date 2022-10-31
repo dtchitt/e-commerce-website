@@ -20,19 +20,13 @@ const ProductCard = ({ id, name, description, imgUrl, price, maxWidth }: Product
 	const { getItemCount, increaseCartCount } = useCart();
 
 	return (
-		<Card
-			className={
-				!maxWidth || maxWidth <= 20 ? 'p-2 shadow-sm grow m-1' : 'p-2 shadow-sm grow-sm m-1'
-			}
-			style={{ maxWidth: width }}
-			onClick={displayPage}
-		>
+		<Card className='p-2 shadow-sm grow' style={{ maxWidth: width }}>
 			<Card.Img
 				variant='top'
 				src={`${imgUrl}`}
 				height={Number(width) * (4 / 3) + 'rem'}
 				style={{ objectFit: 'cover' }}
-				className='rounded p-1 mb-1 border'
+				className='rounded p-1 mb-1 border grow'
 				alt={name}
 				title={name}
 				onClick={displayPage}
