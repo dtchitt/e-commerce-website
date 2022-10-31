@@ -4,13 +4,12 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      =env("DATABASE_URL")
-  
+  url      = env("DATABASE_URL")
 }
 
 model addresses {
   address_id   Int     @id @default(autoincrement())
-  user_id      Int     @unique
+  user_id      Int?
   street       String? @db.VarChar(200)
   unit         String? @db.VarChar(20)
   city         String? @db.VarChar(100)
@@ -22,23 +21,23 @@ model addresses {
   @@index([user_id], map: "user_id")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model cart_items {
-  product_id Int?
-  cart_id    Int?
-  products   products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_1")
-  carts      carts?    @relation(fields: [cart_id], references: [cart_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_2")
+  product_id   Int?
+  cart_id      Int?
+  cart_item_id Int       @id @default(autoincrement())
+  quantity     Int?
+  products     products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_1")
+  carts        carts?    @relation(fields: [cart_id], references: [cart_id], onDelete: NoAction, onUpdate: NoAction, map: "cart_items_ibfk_2")
 
   @@index([cart_id], map: "cart_id")
   @@index([product_id], map: "product_id")
-  @@ignore
 }
 
 model carts {
-  cart_id    Int          @id @default(autoincrement())
+  cart_id    Int         @id @default(autoincrement())
   user_id    Int?
   users      users?       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "carts_ibfk_1")
-  cart_items cart_items[] @ignore
+  cart_items cart_items[]
 
   @@index([user_id], map: "user_id")
 }
@@ -76,7 +75,7 @@ model products {
   stock       Int?
   name        String?       @db.VarChar(200)
   users       users?        @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "products_ibfk_1")
-  cart_items  cart_items[]  @ignore
+  cart_items  cart_items[]
   order_items order_items[]
   reviews     reviews[]
 
@@ -98,7 +97,7 @@ model reviews {
 
 model users {
   user_id    Int         @id @default(autoincrement())
-  username   String?     @unique @db.VarChar(40)
+  username   String?     @db.VarChar(40)
   first_name String?     @db.VarChar(40)
   last_name  String?     @db.VarChar(40)
   email      String?     @db.VarChar(40)
