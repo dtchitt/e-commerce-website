@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { queryListOfProducts } from '../services/product.services';
+import { queryListOfProducts } from '../services/productServices';
 
 export const getAllProducts = async (req: Request, res: Response) => {
 	const productList = await queryListOfProducts();

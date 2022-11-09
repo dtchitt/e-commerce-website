@@ -67,6 +67,7 @@ async function main() {
 			price: 9.99,
 			stock: 25,
 			name: 'Dog Chew Toy',
+			user_id: 2,
 		},
 	});
 

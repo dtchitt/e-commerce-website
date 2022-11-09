@@ -1,8 +1,21 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
+import { getReq } from '../../hooks/sendRequest';
 import './styles/cms.css';
 
 const Product = () => {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		getResult();
+	}, []);
+
+	const getResult = async () => {
+		setProducts(await getReq('/seller/user/2/products'));
+	};
+
+	console.log(products);
 	return (
 		<Container fluid className=''>
 			<Row>

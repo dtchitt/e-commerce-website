@@ -1,4 +1,4 @@
-import { queryListOfUsers } from '../services/user.services';
+import { queryListOfUsers } from '../services/userServices';
 import { Request, Response } from 'express';
 export const getAllUsers = async (req: any, res: any) => {
 	const userList = await queryListOfUsers();

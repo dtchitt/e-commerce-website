@@ -68,7 +68,7 @@ model orders {
 
 model products {
   product_id  Int           @id @default(autoincrement())
-  user_id     Int?
+  user_id     Int
   image_url   String?       @db.VarChar(1000)
   description String?       @db.VarChar(2000)
   price       Decimal?      @db.Decimal(10, 2)
@@ -79,6 +79,7 @@ model products {
   order_items order_items[]
   reviews     reviews[]
 
+  @@unique([product_id, user_id], name:"product_user_pair")
   @@index([user_id], map: "user_id")
 }
 
